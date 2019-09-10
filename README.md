@@ -1,7 +1,7 @@
 # Text Processing Java Projects
 
 This is a collection of drivers for projects that take structured text inputs.  
-The projects are built with [jacoco](https://www.eclemma.org/jacoco/) instrumentation and report code coverage.
+The projects are built with [jacoco](https://www.eclemma.org/jacoco/) instrumentation and report code coverage and thrown exceptions.
 
 ## Build Instructions
 You require java `1.8` or greater.  
@@ -9,7 +9,7 @@ To build all projects simply execute `./gradlew build` (or `.\gradlew.bat build`
 This will generate instrumented, executable jars in the `build/libs` directory.
 
 There is also the command `./gradlew downloadOriginalJar`,
-which will download the original, uninstrumented versions of the projects' artefacts into `build/originals`.
+which will download the original, uninstrumented versions of the projects' artifacts into `build/originals`.
 These are required for producing coverage reports.
 
 ## Running the Projects
@@ -32,6 +32,21 @@ java -jar build/libs/argo-subject.jar \
 ```
 
 This will execute the parser on all inputs in `~/tmp/json` and log all exceptions into `argo.exceptions.json` and produce a coverage report in `argo.coverage.csv`.
+
+## Repository Structure
+
+This repository is organized as a gradle multi-project where each subdirectory encapsulates a driver for a project, with a few notable exceptions:
+
+```
+.
+├── argo      <-- driver for project argo
+├── autolink  <-- driver for project autolink
+├── ...       <-- more project drivers...
+├── build     <-- the output directory where the built projects end up
+├── buildSrc  <-- single source of truth for dependency and project versions
+├── gradle    <-- gradle wrapper, so you don't have to install a build tool
+└── utils     <-- this contains the entry point, command line processing, and coverage and exception reporting; it is used in all drivers
+```
 
 ## Projects
 These are the projects, which are currently supported:
