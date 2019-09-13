@@ -8,8 +8,7 @@ You require java `1.8` or greater.
 To build all projects simply execute `./gradlew build` (or `.\gradlew.bat build` on Windows) in the project root directory.  
 This will generate instrumented, executable jars in the `build/libs` directory.
 
-There is also the command `./gradlew downloadOriginalJar`,
-which will download the original, uninstrumented versions of the projects' artifacts into `build/originals`.
+Additionally, the build process will download the original, uninstrumented versions of the projects' artifacts into `build/originals`.
 These are required for producing coverage reports.
 
 ## Running the Projects

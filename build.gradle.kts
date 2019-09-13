@@ -90,7 +90,7 @@ configure(subprojects.filter { it.name !in specialProjects }) {
     // a task for downloading all un-instrumented subjects for analysis with jacoco
     tasks.register<Copy>("downloadOriginalJar") {
         from(subject)
-        into("${rootProject.buildDir}/originals")
+        into("$buildDir/original")
     }
 }
 
@@ -102,8 +102,17 @@ val gatherArtifacts = tasks.register<Copy>("gatherArtifacts") {
     into("$buildDir/libs")
 }
 
+// copy all original jars into one directory for convenience
+val gatherOriginals = tasks.register<Copy>("gatherOriginals") {
+    val originals = subprojects.asSequence().filter { it.name !in specialProjects }.map { it.tasks.getByName("downloadOriginalJar") }.toList()
+    dependsOn(originals)
+    from(originals)
+    into("$buildDir/originals")
+}
+
 tasks.getByName("build") {
     dependsOn(gatherArtifacts)
+    dependsOn(gatherOriginals)
 
     // generate the README file with the subject versions used
     dependsOn(tasks.register<ReadmeGenerationTask>("generateReadme"))
