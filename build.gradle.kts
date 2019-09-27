@@ -39,6 +39,17 @@ configure(subprojects.filter { it.name !in specialProjects }) {
         isCanBeResolved = true
     }
 
+    val subjectTransitives by configurations.creating {
+        isVisible = false
+        isTransitive = true
+        isCanBeConsumed = false
+        isCanBeResolved = true
+        extendsFrom(subject)
+        subject.dependencies.forEach {
+            exclude(group = it.group, module = it.name)
+        }
+    }
+
     configurations.getByName("compileOnly") {
         extendsFrom(subject)
     }
@@ -79,7 +90,7 @@ configure(subprojects.filter { it.name !in specialProjects }) {
         archiveClassifier.set("subject")
         archiveVersion.set("")
         manifest.attributes["Main-Class"] = "saarland.cispa.subjects.Driver"
-        configurations = configurations + listOf(instrumented)
+        configurations = configurations + listOf(instrumented, subjectTransitives)
     }
 
     tasks.getByName("build").dependsOn("shadowJar")
