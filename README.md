@@ -97,7 +97,7 @@ Project | Version | Instrumented Package | Notes
 [cssparser](http://cssparser.sourceforge.net/) |  `0.9.27` | `net.sourceforge.cssparser` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/steadystate/css/parser/SACParserCSS21TokenManager.jjMoveNfa_0 (II)I"
 [flute](https://www.w3.org/Style/CSS/SAC/) |  `1.3` | `org.w3c.flute`
 [jstyleparser](https://github.com/radkovo/jStyleParser/) |  `3.2` | `net.sf.cssbox`
-[ph-css](https://github.com/phax/ph-css) | `6.1.2` |  `com.helger.css`
+[ph-css](https://github.com/phax/ph-css) | `6.1.2` |  `com.helger.css` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/helger/css/parser/ParserCSS30TokenManager.jjMoveNfa_0 (II)I"
 
 #### INI
 Project | Version | Instrumented Package
