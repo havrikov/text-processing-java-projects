@@ -6,11 +6,12 @@ import org.w3c.css.sac.LexicalUnit
 import org.w3c.css.sac.Parser
 import org.w3c.css.sac.SACMediaList
 import org.w3c.css.sac.SelectorList
+import java.io.File
 
 abstract class SACDriver : SubjectExecutor() {
     protected abstract val parser: Parser
 
-    override fun processInput(text: String) {
+    override fun processFile(file: File) {
         parser.setDocumentHandler(object : DocumentHandler {
             override fun namespaceDeclaration(prefix: String?, uri: String?) = Unit
             override fun endMedia(media: SACMediaList?) = Unit
@@ -28,6 +29,8 @@ abstract class SACDriver : SubjectExecutor() {
             override fun startDocument(source: InputSource?) = Unit
             override fun startFontFace() = Unit
         })
-        parser.parseStyleSheet(text)
+        file.reader().use {
+            parser.parseStyleSheet(InputSource(it))
+        }
     }
 }
