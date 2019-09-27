@@ -93,7 +93,6 @@ Project | Version | Instrumented Package | Notes
 Project | Version | Instrumented Package | Notes
 ---     | --- | --- | ---
 [batik-css](https://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/css/parser/package-summary.html) |  `1.11` | `org.apache.batik.css`
-[closure-stylesheets](http://code.google.com/p/closure-stylesheets/) |  `0.9.27` | `com.google.closure-stylesheets`
 [css-validator](https://github.com/w3c/css-validator) | `1.0.4` | `org.w3c.css.css` | :warning: Currently unsupported because of Jacoco Error: "Method too large: org/w3c/css/parser/analyzer/CssParserTokenManager.jjMoveNfa_0 (II)I"
 [cssparser](http://cssparser.sourceforge.net/) |  `0.9.27` | `net.sourceforge.cssparser` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/steadystate/css/parser/SACParserCSS21TokenManager.jjMoveNfa_0 (II)I"
 [flute](https://www.w3.org/Style/CSS/SAC/) |  `1.3` | `org.w3c.flute`

@@ -52,7 +52,6 @@ object Deps {
     const val rhinoVersion = "1.7.10"
 
     const val batikCssVersion = "1.11"
-    const val closureStylesheetsVersion = "0.9.27"
     const val cssparserVersion = "0.9.27"
     const val cssValidatorVersion = "1.0.4"
     const val fluteVersion = "1.3"
