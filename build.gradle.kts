@@ -66,7 +66,7 @@ configure(subprojects.filter { it.name !in specialProjects }) {
     }
 
     dependencies {
-        val needsInstrumentation: String = project.property("saarland.cispa.se.instrument") as String
+        val needsInstrumentation: String = (project.findProperty("saarland.cispa.se.instrument") ?: "false") as String
         if (needsInstrumentation.toBoolean()) {
             attributesSchema {
                 attribute(jacocoInstrumented)
