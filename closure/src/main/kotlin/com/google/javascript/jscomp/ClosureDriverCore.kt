@@ -7,13 +7,12 @@ object ClosureDriverCore {
     fun execute(file: File) {
         val runner = CommandLineRunner(
             arrayOf(
-                "--compilation_level", "SIMPLE",
-                "--warning_level", "QUIET",
-                "--new_type_inf", "true",
+                "--compilation_level", "ADVANCED",
                 "--strict_mode_input", "false",
                 "--assume_function_wrapper", "true",
                 "--formatting", "PRETTY_PRINT",
                 "--isolation_mode", "IIFE",
+                "--generate_exports",
                 "--env", "BROWSER",
                 "--module_resolution", "BROWSER",
                 "--js", file.absolutePath
