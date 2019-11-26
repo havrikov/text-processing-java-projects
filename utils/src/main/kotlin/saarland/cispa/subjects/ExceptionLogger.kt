@@ -27,8 +27,7 @@ class ExceptionLogger(packagePrefix: String, private val outputFile: File) {
             val exceptionPackage = t.javaClass.`package`.name
             val commonPrefix = subjectPackage.commonPrefixWith(exceptionPackage)
             if (commonPrefix.length <= 4 || exceptionPackage.isEmpty()) { // the common prefix may at most be something like "com." or "org."
-                // a call to fillInStackTrace ensures the correct stack trace is computed eagerly
-                val ex = exceptions.getOrPut(t.fillInStackTrace()) { mutableListOf() }
+                val ex = exceptions.getOrPut(t) { mutableListOf() }
                 ex.add(file.name)
             }
             throw t
