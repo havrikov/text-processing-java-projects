@@ -1,16 +1,14 @@
 package saarland.cispa.subjects
 
+import net.logstash.logback.stacktrace.StackHasher
 import java.io.File
-import java.lang.IllegalArgumentException
 import java.util.concurrent.TimeoutException
 import javax.json.Json
 
 class ExceptionLogger(packagePrefix: String, private val outputFile: File) {
     private val subjectPackage = packagePrefix.replace('/', '.')
 
-    private data class LocalizedException(val name: String, val location: String)
-
-    private val exceptions = mutableMapOf<LocalizedException, MutableList<String>>()
+    private val exceptions = mutableMapOf<Throwable, MutableList<String>>()
 
     /**
      * Log exceptions only if they come from outside the subject itself.
@@ -29,7 +27,8 @@ class ExceptionLogger(packagePrefix: String, private val outputFile: File) {
             val exceptionPackage = t.javaClass.`package`.name
             val commonPrefix = subjectPackage.commonPrefixWith(exceptionPackage)
             if (commonPrefix.length <= 4 || exceptionPackage.isEmpty()) { // the common prefix may at most be something like "com." or "org."
-                val ex = exceptions.getOrPut(LocalizedException(t.javaClass.canonicalName, t.locationString())) { mutableListOf() }
+                // a call to fillInStackTrace ensures the correct stack trace is computed eagerly
+                val ex = exceptions.getOrPut(t.fillInStackTrace()) { mutableListOf() }
                 ex.add(file.name)
             }
             throw t
@@ -39,10 +38,11 @@ class ExceptionLogger(packagePrefix: String, private val outputFile: File) {
     fun writeLog() {
         if (exceptions.isNotEmpty()) {
             val arr = Json.createArrayBuilder()
-            exceptions.forEach { (name, location), files ->
+            exceptions.forEach { (exception, files) ->
                 arr.add(Json.createObjectBuilder().apply {
-                    add("name", name)
-                    add("location", location)
+                    add("name", exception.javaClass.canonicalName)
+                    add("location", exception.locationString())
+                    add("stack_hash", exception.stackHash())
                     add("count", files.size)
                     add("files", Json.createArrayBuilder().apply { files.forEach { add(it) } })
                 })
@@ -58,5 +58,10 @@ class ExceptionLogger(packagePrefix: String, private val outputFile: File) {
         } else {
             (trace.firstOrNull { it.className.startsWith(subjectPackage) } ?: trace[0]).let { "${it.className}:${it.lineNumber}" }
         }
+    }
+
+    companion object {
+        private val stackHasher = StackHasher()
+        private fun Throwable.stackHash() = stackHasher.hexHash(this)
     }
 }

@@ -9,6 +9,7 @@ object Deps {
     const val logbackVersion = "1.2.3"
     const val openCsvVersion = "4.4"
     const val javaxJsonVersion = "1.1.4"
+    const val logstashVersion = "6.2"
     // jacocoVersion is taken from versions.gradle.kts
     // because it is needed in both utils and buildSrc
 

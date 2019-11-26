@@ -8,6 +8,7 @@ dependencies {
     implementation("org.jacoco", "org.jacoco.core", jacocoVersion)
     implementation("org.jacoco", "org.jacoco.agent", jacocoVersion, classifier = "runtime")
     implementation("com.opencsv", "opencsv", Deps.openCsvVersion)
+    implementation("net.logstash.logback", "logstash-logback-encoder", Deps.logstashVersion)
 
     implementation("javax.json", "javax.json-api", Deps.javaxJsonVersion)
     runtimeOnly("org.glassfish", "javax.json", Deps.javaxJsonVersion)
