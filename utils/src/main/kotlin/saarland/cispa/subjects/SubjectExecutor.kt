@@ -5,6 +5,7 @@ import com.xenomachina.argparser.default
 import com.xenomachina.argparser.mainBody
 import mu.KotlinLogging
 import saarland.cispa.subjects.coverage.CoverageReporter
+import saarland.cispa.subjects.coverage.MethodReporter
 import java.io.File
 
 /** Subject Drivers should subclass this and call processArgs in their main */
@@ -15,6 +16,7 @@ abstract class SubjectExecutor {
         val ignoreExceptions by parser.flagging("Activate batch mode ignoring any exceptions thrown")
         val logExceptions by parser.storing("Log thrown exceptions into the given file", transform = ::File).default { null }
         val reportCoverage by parser.storing("Run with jacoco and report the achieved coverage into this file", transform = ::File).default { null }
+        val reportMethods by parser.storing("Run with jacoco and report the covered methods into this file", transform = ::File).default { null }
         val originalBytecode by parser.storing("Location of the original bytecode. Required only when run with --report-coverage", transform = ::File).default { null }
         val inputs by parser.positionalList("Files or directories to feed to process", transform = ::File)
     }
@@ -38,6 +40,12 @@ abstract class SubjectExecutor {
             // if requested, also report the coverage counters by analyzing the original bytecode
             reportCoverage?.let {
                 val reporter = CoverageReporter(it, originalBytecode, packagePrefix)
+                action = reporter.recordingCoverage(action)
+                postAll = postAll.let { { it(); reporter.close() } }
+            }
+            // if requested, report the covered methods
+            reportMethods?.let {
+                val reporter = MethodReporter(it, originalBytecode, packagePrefix)
                 action = reporter.recordingCoverage(action)
                 postAll = postAll.let { { it(); reporter.close() } }
             }
