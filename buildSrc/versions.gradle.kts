@@ -1,1 +1,1 @@
-extra["jacocoVersion"] = "0.8.4"
+extra["jacocoVersion"] = "0.8.5"
