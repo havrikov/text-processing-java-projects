@@ -3,7 +3,7 @@ package saarland.cispa.subjects.coverage
 import com.opencsv.CSVWriter
 import java.io.File
 
-class CoverageReporter(targetFile: File, private val originalByteCode: File?, packagePrefix: String) {
+class CoverageReporter(targetFile: File, originalByteCode: File?, packagePrefix: String) {
 
     private val coverages = listOf(ClassCoverageCounter, MethodCoverageCounter, LineCoverageCounter, InstructionCoverageCounter, BranchCoverageCounter)
     private var fileCount = 0
