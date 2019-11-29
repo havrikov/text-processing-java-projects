@@ -3,7 +3,7 @@ package saarland.cispa.subjects.coverage
 import com.opencsv.CSVWriter
 import java.io.File
 
-class MethodReporter(targetFile: File, private val originalByteCode: File?, packagePrefix: String) {
+class MethodReporter(targetFile: File, originalByteCode: File?, packagePrefix: String) {
 
     private val writer: CSVWriter
     private val extractor = CoverageExtractor(originalByteCode, packagePrefix)
