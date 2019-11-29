@@ -2,6 +2,7 @@ package saarland.cispa.subjects.coverage
 
 import com.opencsv.CSVWriter
 import java.io.File
+import java.util.zip.GZIPOutputStream
 
 class MethodReporter(targetFile: File, originalByteCode: File?, packagePrefix: String) {
 
@@ -9,9 +10,9 @@ class MethodReporter(targetFile: File, originalByteCode: File?, packagePrefix: S
     private val extractor = CoverageExtractor(originalByteCode, packagePrefix)
 
     init {
-        // ensure the csv file can be written by creating its parent directory
+        // ensure the csv.gz file can be written by creating its parent directory
         targetFile.absoluteFile.parentFile.mkdirs()
-        writer = CSVWriter(targetFile.bufferedWriter())
+        writer = CSVWriter(GZIPOutputStream(targetFile.outputStream()).bufferedWriter())
         writer.writeNext(arrayOf("input_file", "class_name", "method_name", "line", "instructions_missed", "instructions_hit"), false)
     }
 

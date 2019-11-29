@@ -15,8 +15,8 @@ abstract class SubjectExecutor {
     private class Settings(parser: ArgParser) {
         val ignoreExceptions by parser.flagging("Activate batch mode ignoring any exceptions thrown")
         val logExceptions by parser.storing("Log thrown exceptions into the given file", transform = ::File).default { null }
-        val reportCoverage by parser.storing("Run with jacoco and report the achieved coverage into this file", transform = ::File).default { null }
-        val reportMethods by parser.storing("Run with jacoco and report the covered methods into this file", transform = ::File).default { null }
+        val reportCoverage by parser.storing("Run with jacoco and report the achieved coverage into this csv file", transform = ::File).default { null }
+        val reportMethods by parser.storing("Run with jacoco and report the covered methods into this gzipped csv file", transform = ::File).default { null }
         val originalBytecode by parser.storing("Location of the original bytecode. Required only when run with --report-coverage", transform = ::File).default { null }
         val inputs by parser.positionalList("Files or directories to feed to process", transform = ::File)
     }
