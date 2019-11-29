@@ -4,6 +4,7 @@ import com.xenomachina.argparser.ArgParser
 import com.xenomachina.argparser.default
 import com.xenomachina.argparser.mainBody
 import mu.KotlinLogging
+import saarland.cispa.subjects.coverage.CoverageExtractor
 import saarland.cispa.subjects.coverage.CoverageReporter
 import saarland.cispa.subjects.coverage.MethodReporter
 import java.io.File
@@ -27,6 +28,7 @@ abstract class SubjectExecutor {
             val inputFiles = inputs.gatherInputs()
             // by default just process each file
             var action: (File) -> Unit = ::processFile
+            var preEach = {}
             var postAll = {}
 
             // if requested, log exceptions
@@ -37,21 +39,31 @@ abstract class SubjectExecutor {
             }
             // if requested, ignore exceptions
             if (ignoreExceptions) action = ignoringExceptions(action)
+
+            // if needed, set up a coverage extractor
+            val extractor = if (reportCoverage != null || reportMethods != null) {
+                CoverageExtractor(originalBytecode, packagePrefix).also {
+                    preEach = { it.getFresh = true }
+                }
+            } else null
             // if requested, also report the coverage counters by analyzing the original bytecode
             reportCoverage?.let {
-                val reporter = CoverageReporter(it, originalBytecode, packagePrefix)
+                val reporter = CoverageReporter(it, extractor!!)
                 action = reporter.recordingCoverage(action)
                 postAll = postAll.let { { it(); reporter.close() } }
             }
             // if requested, report the covered methods
             reportMethods?.let {
-                val reporter = MethodReporter(it, originalBytecode, packagePrefix)
+                val reporter = MethodReporter(it, extractor!!)
                 action = reporter.recordingCoverage(action)
                 postAll = postAll.let { { it(); reporter.close() } }
             }
 
             try {
-                inputFiles.forEach(action)
+                inputFiles.forEach {
+                    preEach()
+                    action(it)
+                }
             } finally {
                 postAll()
             }

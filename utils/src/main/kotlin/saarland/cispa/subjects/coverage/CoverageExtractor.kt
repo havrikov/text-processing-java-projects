@@ -12,6 +12,8 @@ import java.io.File
 class CoverageExtractor(private val originalByteCode: File?, packagePrefix: String) {
     private val agent = Agent.getInstance(AgentOptions("output=none,dumponexit=false,excludes=*,includes=$packagePrefix*"))
     private val original: ByteArray
+    private lateinit var lastExecutionData: Collection<IClassCoverage>
+    internal var getFresh: Boolean = true
 
     init {
         require(originalByteCode != null && originalByteCode.exists()) { "The path to the original bytecode is invalid! Given: $originalByteCode" }
@@ -21,11 +23,15 @@ class CoverageExtractor(private val originalByteCode: File?, packagePrefix: Stri
     }
 
     internal fun getCoveredClasses(): Collection<IClassCoverage> {
-        val coverageBuilder = CoverageBuilder()
-        val executionData = getExecutionData()
-        val analyzer = Analyzer(executionData, coverageBuilder)
-        analyzer.analyzeAll(original.inputStream(), originalByteCode.toString())
-        return coverageBuilder.classes
+        if (getFresh) {
+            val coverageBuilder = CoverageBuilder()
+            val executionData = getExecutionData()
+            val analyzer = Analyzer(executionData, coverageBuilder)
+            analyzer.analyzeAll(original.inputStream(), originalByteCode.toString())
+            getFresh = false
+            lastExecutionData = coverageBuilder.classes
+        }
+        return lastExecutionData
     }
 
     private fun getExecutionData(): ExecutionDataStore {

@@ -3,12 +3,11 @@ package saarland.cispa.subjects.coverage
 import com.opencsv.CSVWriter
 import java.io.File
 
-class CoverageReporter(targetFile: File, originalByteCode: File?, packagePrefix: String) {
+class CoverageReporter(targetFile: File, private val extractor: CoverageExtractor) {
 
     private val coverages = listOf(ClassCoverageCounter, MethodCoverageCounter, LineCoverageCounter, InstructionCoverageCounter, BranchCoverageCounter)
     private var fileCount = 0
     private val writer: CSVWriter
-    private val extractor = CoverageExtractor(originalByteCode, packagePrefix)
 
     init {
         // ensure the csv file can be written by creating its parent directory

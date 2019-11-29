@@ -4,10 +4,9 @@ import com.opencsv.CSVWriter
 import java.io.File
 import java.util.zip.GZIPOutputStream
 
-class MethodReporter(targetFile: File, originalByteCode: File?, packagePrefix: String) {
+class MethodReporter(targetFile: File, private val extractor: CoverageExtractor) {
 
     private val writer: CSVWriter
-    private val extractor = CoverageExtractor(originalByteCode, packagePrefix)
 
     init {
         // ensure the csv.gz file can be written by creating its parent directory
