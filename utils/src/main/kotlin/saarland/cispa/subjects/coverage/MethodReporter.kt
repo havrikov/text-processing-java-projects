@@ -21,14 +21,14 @@ class MethodReporter(targetFile: File, private val originalByteCode: File?, pack
         } finally {
             val classes = extractor.getCoveredClasses()
             classes.forEach {
-                val csvRow = mutableListOf(file.name, it.name)
                 it.methods.forEach { method ->
+                    val csvRow = mutableListOf(file.name, it.name)
                     csvRow.add(method.name)
                     csvRow.add(method.firstLine.toString())
                     csvRow.add(method.instructionCounter.missedCount.toString())
                     csvRow.add(method.instructionCounter.coveredCount.toString())
+                    writer.writeNext(csvRow.toTypedArray(), false)
                 }
-                writer.writeNext(csvRow.toTypedArray(), false)
             }
         }
     }
