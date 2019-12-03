@@ -11,7 +11,7 @@ class MethodReporter(targetFile: File, private val extractor: CoverageExtractor)
     init {
         // ensure the csv.gz file can be written by creating its parent directory
         targetFile.absoluteFile.parentFile.mkdirs()
-        writer = CSVWriter(GZIPOutputStream(compressedTargetFile(targetFile).outputStream()).bufferedWriter())
+        writer = CSVWriter(GZIPOutputStream(targetFile.outputStream()).bufferedWriter())
         writer.writeNext(arrayOf("input_file", "class_name", "method_name", "line", "instructions_missed", "instructions_hit"), false)
     }
 
@@ -34,8 +34,4 @@ class MethodReporter(targetFile: File, private val extractor: CoverageExtractor)
     }
 
     fun close() = writer.close()
-
-    private fun compressedTargetFile(targetFile: File): File = if (targetFile.extension !in listOf("gz", "gzip")) {
-        targetFile.resolveSibling(targetFile.name + ".gz")
-    } else targetFile
 }
