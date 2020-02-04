@@ -35,7 +35,7 @@ class CoverageExtractor(private val originalByteCode: File?, packagePrefix: Stri
     }
 
     private fun getExecutionData(): ExecutionDataStore {
-        val executionData = agent.getExecutionData(false)
+        val executionData = agent.getExecutionData(getFresh)
         val executionDataReader = ExecutionDataReader(executionData.inputStream())
         val execStore = ExecutionDataStore()
         executionDataReader.setExecutionDataVisitor(execStore)

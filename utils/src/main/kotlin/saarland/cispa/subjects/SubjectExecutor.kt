@@ -20,6 +20,7 @@ abstract class SubjectExecutor {
         val reportMethods by parser.storing("Run with jacoco and report the covered methods into this gzipped csv file", transform = ::File).default { null }
         val originalBytecode by parser.storing("Location of the original bytecode. Required only when run with --report-coverage", transform = ::File).default { null }
         val inputs by parser.positionalList("Files or directories to feed to process", transform = ::File)
+        val cumulative by parser.flagging("Do not reset the coverage information after each input.")
     }
 
     /** Subclasses should just call this method from their main */
@@ -43,7 +44,8 @@ abstract class SubjectExecutor {
             // if needed, set up a coverage extractor
             val extractor = if (reportCoverage != null || reportMethods != null) {
                 CoverageExtractor(originalBytecode, packagePrefix).also {
-                    preEach = { it.getFresh = true }
+                    if (!cumulative)
+                        preEach = { it.getFresh = true }
                 }
             } else null
             // if requested, also report the coverage counters by analyzing the original bytecode
