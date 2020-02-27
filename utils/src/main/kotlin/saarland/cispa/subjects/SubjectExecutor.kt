@@ -45,7 +45,7 @@ abstract class SubjectExecutor {
             val extractor = if (reportCoverage != null || reportMethods != null) {
                 CoverageExtractor(originalBytecode, packagePrefix).also {
                     if (!cumulative)
-                        preEach = { it.getFresh = true }
+                        preEach = { it.reset() }
                 }
             } else null
             // if requested, also report the coverage counters by analyzing the original bytecode
