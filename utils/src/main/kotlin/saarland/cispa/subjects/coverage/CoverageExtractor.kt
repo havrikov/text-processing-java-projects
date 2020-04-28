@@ -30,10 +30,11 @@ class CoverageExtractor(private val originalByteCode: File?, packagePrefix: Stri
 
     private fun getExecutionData(): ExecutionDataStore {
         val executionData = agent.getExecutionData(false)
-        val executionDataReader = ExecutionDataReader(executionData.inputStream())
         val execStore = ExecutionDataStore()
-        executionDataReader.setExecutionDataVisitor(execStore)
-        executionDataReader.setSessionInfoVisitor {} // must avoid NPE
+        val executionDataReader = ExecutionDataReader(executionData.inputStream()).apply {
+            setExecutionDataVisitor(execStore)
+            setSessionInfoVisitor {} // must avoid NPE
+        }
         executionDataReader.read()
         return execStore
     }
