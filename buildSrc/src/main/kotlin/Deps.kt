@@ -4,7 +4,7 @@ object Deps {
     const val shadowVersion = "5.1.0"
 
     // Utils Project
-    const val argparserVersion = "2.0.7"
+    const val cliktVersion = "2.6.0"
     const val kotlinLoggingVersion = "1.6.26"
     const val logbackVersion = "1.2.3"
     const val openCsvVersion = "4.4"
