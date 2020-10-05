@@ -65,6 +65,6 @@ object Deps {
     const val javaConfigparserVersion = "0.2"
 
     const val digraphParserVersion = "1.0"
-    const val graphstreamVersion = "1.3"
-    const val graphvizJavaVersion = "0.8.3"
+    const val graphstreamVersion = "2.0"
+    const val graphvizJavaVersion = "0.17.0"
 }

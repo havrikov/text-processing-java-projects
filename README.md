@@ -110,5 +110,5 @@ Project | Version | Instrumented Package
 Project | Version | Instrumented Package
 ---     | --- | ---
 [digraph-parser](https://github.com/paypal/digraph-parser/) | `1.0` | `com.paypal.digraph.parser`
-[graphstream](http://graphstream-project.org/) | `1.3` | `org.graphstream`
-[graphviz-java](https://github.com/nidi3/graphviz-java/) | `0.8.3` | `guru.nidi`
+[graphstream](http://graphstream-project.org/) | `2.0` | `org.graphstream`
+[graphviz-java](https://github.com/nidi3/graphviz-java/) | `0.17.0` | `guru.nidi`
