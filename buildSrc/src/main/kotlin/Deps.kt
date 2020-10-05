@@ -52,12 +52,12 @@ object Deps {
     const val rhinoSandboxVersion = "0.0.11"
     const val rhinoVersion = "1.7.13"
 
-    const val batikCssVersion = "1.11"
+    const val batikCssVersion = "1.13"
     const val cssparserVersion = "0.9.27"
-    const val cssValidatorVersion = "1.0.4"
+    const val cssValidatorVersion = "1.0.8"
     const val fluteVersion = "1.3"
-    const val jstyleparserVersion = "3.2"
-    const val phCssVersion = "6.1.2"
+    const val jstyleparserVersion = "3.5"
+    const val phCssVersion = "6.2.3"
     const val sacVersion = "1.3"
 
     const val fastiniVersion = "1.2.1"
