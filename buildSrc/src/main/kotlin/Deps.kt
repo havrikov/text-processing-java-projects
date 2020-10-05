@@ -47,10 +47,10 @@ object Deps {
     const val simpleCSVVersion = "2.1"
     const val superCSVVersion = "2.4.0"
 
-    const val closureVersion = "v20190106"
-    const val nashornSandboxVersion = "0.1.21"
-    const val rhinoSandboxVersion = "0.0.10"
-    const val rhinoVersion = "1.7.10"
+    const val closureVersion = "v20200927"
+    const val nashornSandboxVersion = "0.1.28"
+    const val rhinoSandboxVersion = "0.0.11"
+    const val rhinoVersion = "1.7.13"
 
     const val batikCssVersion = "1.11"
     const val cssparserVersion = "0.9.27"

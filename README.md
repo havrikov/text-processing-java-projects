@@ -84,10 +84,10 @@ Project | Version | Instrumented Package
 #### JavaScript
 Project | Version | Instrumented Package | Notes
 ---     | --- | --- | ---
-[closure](https://github.com/google/closure-compiler) | `v20190106` | `com.google.javascript.jscomp`
-[nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox/) | `0.1.21` | `delight.nashornsandbox` | Delegates to Nashorn (Rhino's precursor)
-[rhino-sandbox](https://github.com/javadelight/delight-rhino-sandbox/) | `0.0.10` | `delight.rhinosandox` | Not a typo. Delegates to Rhino.
-[rhino](https://github.com/mozilla/rhino/) | `1.7.10` | `org.mozilla.javascript`
+[closure](https://github.com/google/closure-compiler) | `v20200927` | `com.google.javascript.jscomp`
+[nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox/) | `0.1.28` | `delight.nashornsandbox` | Delegates to Nashorn (Rhino's precursor)
+[rhino-sandbox](https://github.com/javadelight/delight-rhino-sandbox/) | `0.0.11` | `delight.rhinosandox` | Not a typo. Delegates to Rhino.
+[rhino](https://github.com/mozilla/rhino/) | `1.7.13` | `org.mozilla.javascript`
 
 #### CSS
 Project | Version | Instrumented Package | Notes
