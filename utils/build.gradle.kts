@@ -4,7 +4,7 @@ buildscript {
 
 val jacocoVersion: String by extra
 dependencies {
-    implementation("com.github.ajalt", "clikt", Deps.cliktVersion)
+    implementation("com.github.ajalt.clikt", "clikt", Deps.cliktVersion)
     implementation("org.jacoco", "org.jacoco.core", jacocoVersion)
     implementation("org.jacoco", "org.jacoco.agent", jacocoVersion, classifier = "runtime")
     implementation("com.opencsv", "opencsv", Deps.openCsvVersion)
