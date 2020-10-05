@@ -55,10 +55,10 @@ Project | Version | Instrumented Package
 #### URL
 Project | Version | Instrumented Package
 ---     | --- | ---
-[autolink](https://github.com/robinst/autolink-java) | `0.9.0` | `org.nibor.autolink`
+[autolink](https://github.com/robinst/autolink-java) | `0.10.0` | `org.nibor.autolink`
 [galimatias-nu](https://github.com/validator/galimatias) | `0.1.3` | `io.mola.galimatias`
 [galimatias](https://github.com/smola/galimatias) | `0.2.1` | `io.mola.galimatias`
-[jurl](https://github.com/anthonynsimon/jurl) | `v0.3.0` | `com.anthonynsimon.url`
+[jurl](https://github.com/anthonynsimon/jurl) | `v0.4.2` | `com.anthonynsimon.url`
 [url-detector](https://github.com/linkedin/URL-Detector) | `0.1.17` | `com.linkedin.urls.detection`
 
 #### Markdown

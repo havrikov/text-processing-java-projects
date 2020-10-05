@@ -27,10 +27,10 @@ object Deps {
     const val minimalJsonVersion = "0.9.5"
     const val pojoVersion = "1.0.2"
 
-    const val autolinkVersion = "0.9.0"
+    const val autolinkVersion = "0.10.0"
     const val galimatiasNuVersion = "0.1.3"
     const val galimatiasVersion = "0.2.1"
-    const val jurlVersion = "v0.3.0"
+    const val jurlVersion = "v0.4.2"
     const val urlDetectorVersion = "0.1.17"
 
     const val commonmarkVersion = "0.11.0"
