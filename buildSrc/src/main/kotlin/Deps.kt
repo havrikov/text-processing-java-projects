@@ -40,10 +40,10 @@ object Deps {
     const val markdownPapersVersion = "1.4.4"
     const val txtmarkVersion = "0.13"
 
-    const val commonsCSVVersion = "1.6"
-    const val jacksonDataformatCSVVersion = "2.9.8"
+    const val commonsCSVVersion = "1.8"
+    const val jacksonDataformatCSVVersion = "2.11.3"
     const val jcsvVersion = "1.4.0"
-    const val sfmCSVVersion = "6.1.1"
+    const val sfmCSVVersion = "8.2.3"
     const val simpleCSVVersion = "2.1"
     const val superCSVVersion = "2.4.0"
 

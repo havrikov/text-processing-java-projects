@@ -74,10 +74,10 @@ Project | Version | Instrumented Package
 #### CSV
 Project | Version | Instrumented Package
 ---     | --- | ---
-[commons-csv](https://commons.apache.org/proper/commons-csv/) | `1.6` | `org.apache.commons.csv`
-[jackson-dataformat-csv](https://github.com/FasterXML/jackson-dataformats-text/tree/master/csv) | `2.9.8` | `com.fasterxml.jackson.dataformat`
+[commons-csv](https://commons.apache.org/proper/commons-csv/) | `1.8` | `org.apache.commons.csv`
+[jackson-dataformat-csv](https://github.com/FasterXML/jackson-dataformats-text/tree/master/csv) | `2.11.3` | `com.fasterxml.jackson.dataformat`
 [jcsv](https://code.google.com/archive/p/jcsv/) | `1.4.0` | `com.googlecode.jcsv`
-[sfm-csv](https://github.com/arnaudroger/SimpleFlatMapper) | `6.1.1` | `org.simpleflatmapper.csv`
+[sfm-csv](https://github.com/arnaudroger/SimpleFlatMapper) | `8.2.3` | `org.simpleflatmapper.csv`
 [simplecsv](https://github.com/quux00/simplecsv) | `2.1` | `net.quux00.simplecsv`
 [super-csv](https://github.com/super-csv/super-csv) | `2.4.0` | `org.supercsv`
 
