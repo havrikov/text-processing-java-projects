@@ -33,7 +33,7 @@ object Deps {
     const val jurlVersion = "v0.4.2"
     const val urlDetectorVersion = "0.1.17"
 
-    const val commonmarkVersion = "0.11.0"
+    const val commonmarkVersion = "0.15.2"
     const val flexmarkVersion = "0.34.48"
     const val markdown4jVersion = "2.2-cj-1.1"
     const val markdownjVersion = "0.4"

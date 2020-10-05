@@ -64,7 +64,7 @@ Project | Version | Instrumented Package
 #### Markdown
 Project | Version | Instrumented Package
 ---     | --- | ---
-[commonmark](https://github.com/atlassian/commonmark-java) | `0.11.0` | `org.commonmark`
+[commonmark](https://github.com/atlassian/commonmark-java) | `0.15.2` | `org.commonmark`
 [flexmark](https://github.com/vsch/flexmark-java) | `0.34.48` | `com.vladsch.flexmark`
 [markdown-papers](http://github.com/lruiz/MarkdownPapers) | `1.4.4` | `org.tautua.markdownpapers`
 [markdown4j](https://github.com/jdcasey/markdown4j) | `2.2-cj-1.1` | `org.markdown4j`
