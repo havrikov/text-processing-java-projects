@@ -1,3 +1,3 @@
 dependencies {
-    subject("com.github.wnameless", "json-flattener", Deps.jsonFlattenerVersion)
+    subject("com.github.wnameless.json", "json-flattener", Deps.jsonFlattenerVersion)
 }

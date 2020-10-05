@@ -16,14 +16,13 @@ object Driver : SubjectExecutor() {
     override val packagePrefix = "com.google.gson"
 
     private val gson = Gson()
-    private val parser = JsonParser()
 
     @JvmStatic
     fun main(args: Array<String>) = processArgs(args)
 
     override fun processInput(text: String) {
         // Parsing with JsonParser
-        parser.parse(text).handle(JsonWriter(NopWriter))
+        JsonParser.parseString(text).handle(JsonWriter(NopWriter))
 
         // iterate over json input stream with JsonReader and writing in an output stream via JsonWriter
         // package com.google.gson.stream

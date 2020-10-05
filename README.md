@@ -39,18 +39,18 @@ These are the projects, which are currently supported:
 #### JSON
 Project | Version | Instrumented Package
 ---     | --- | ---
-[argo](http://argo.sourceforge.net/) | `5.4` | `argo`
-[fastjson](https://github.com/alibaba/fastjson) | `1.2.51` | `com.alibaba.fastjson`
-[genson](https://owlike.github.io/genson/) | `1.4` | `com.owlike.genson`
-[gson](https://github.com/google/gson) | `2.8.5` | `com.google.gson`
-[jackson-databind](https://github.com/FasterXML/jackson-databind) | `2.9.8` | `com.fasterxml.jackson`
-[json-flattener](https://github.com/wnameless/json-flattener) | `0.6.0` | `com.github.wnameless.json`
-[json-java](https://github.com/stleary/JSON-java/) | `20180813` | `org.json`
-[json-simple-cliftonlabs](https://github.com/cliftonlabs/json-simple) | `3.0.2` | `com.github.cliftonlabs.json_simple`
+[argo](http://argo.sourceforge.net/) | `5.13` | `argo`
+[fastjson](https://github.com/alibaba/fastjson) | `1.2.73` | `com.alibaba.fastjson`
+[genson](https://owlike.github.io/genson/) | `1.6` | `com.owlike.genson`
+[gson](https://github.com/google/gson) | `2.8.6` | `com.google.gson`
+[jackson-databind](https://github.com/FasterXML/jackson-databind) | `2.11.3` | `com.fasterxml.jackson`
+[json-flattener](https://github.com/wnameless/json-flattener) | `0.9.0` | `com.github.wnameless.json`
+[json-java](https://github.com/stleary/JSON-java/) | `20200518` | `org.json`
+[json-simple-cliftonlabs](https://github.com/cliftonlabs/json-simple) | `3.1.1` | `com.github.cliftonlabs.json_simple`
 [json-simple](https://github.com/fangyidong/json-simple) | `1.1.1` | `org.json.simple`
 [json2flat](https://github.com/opendevl/Json2Flat) | `1.0.3` | `com.github.opendevl`
 [minimal-json](https://github.com/ralfstx/minimal-json) | `0.9.5` | `com.eclipsesource.json`
-[pojo](https://github.com/joelittlejohn/jsonschema2pojo) | `1.0.0` | `org.jsonschema2pojo`
+[pojo](https://github.com/joelittlejohn/jsonschema2pojo) | `1.0.2` | `org.jsonschema2pojo`
 
 #### URL
 Project | Version | Instrumented Package

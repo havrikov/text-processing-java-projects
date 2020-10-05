@@ -14,18 +14,18 @@ object Deps {
     // because it is needed in both utils and buildSrc
 
     // Subjects
-    const val argoVersion = "5.4"
-    const val fastjsonVersion = "1.2.51"
-    const val gensonVersion = "1.4"
-    const val gsonVersion = "2.8.5"
-    const val jacksonDatabindVersion = "2.9.8"
+    const val argoVersion = "5.13"
+    const val fastjsonVersion = "1.2.73"
+    const val gensonVersion = "1.6"
+    const val gsonVersion = "2.8.6"
+    const val jacksonDatabindVersion = "2.11.3"
     const val json2flatVersion = "1.0.3"
-    const val jsonFlattenerVersion = "0.6.0"
-    const val jsonJavaVersion = "20180813"
+    const val jsonFlattenerVersion = "0.9.0"
+    const val jsonJavaVersion = "20200518"
     const val jsonSimpleVersion = "1.1.1"
-    const val jsonSimpleCliftonlabsVersion = "3.0.2"
+    const val jsonSimpleCliftonlabsVersion = "3.1.1"
     const val minimalJsonVersion = "0.9.5"
-    const val pojoVersion = "1.0.0"
+    const val pojoVersion = "1.0.2"
 
     const val autolinkVersion = "0.9.0"
     const val galimatiasNuVersion = "0.1.3"
