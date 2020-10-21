@@ -20,10 +20,6 @@ subprojects {
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
-    dependencies {
-        add("implementation", kotlin("stdlib-jdk8"))
-    }
-
     tasks.withType<KotlinCompile> {
         kotlinOptions.jvmTarget = "1.8"
     }
