@@ -106,7 +106,7 @@ configure(subprojects.filter { it.name !in specialProjects }) {
 
 // copy all created jars into one directory for convenience
 val gatherArtifacts = tasks.register<Copy>("gatherArtifacts") {
-    val artifacts = subprojects.asSequence().filter { it.name !in specialProjects }.map { it.tasks.getByName("shadowJar") }.toList()
+    val artifacts = subprojects.filter { it.name !in specialProjects }.map { it.tasks.getByName("shadowJar") }
     dependsOn(artifacts)
     from(artifacts)
     into("$buildDir/libs")
@@ -114,7 +114,7 @@ val gatherArtifacts = tasks.register<Copy>("gatherArtifacts") {
 
 // copy all original jars into one directory for convenience
 val gatherOriginals = tasks.register<Copy>("gatherOriginals") {
-    val originals = subprojects.asSequence().filter { it.name !in specialProjects }.map { it.tasks.getByName("downloadOriginalJar") }.toList()
+    val originals = subprojects.filter { it.name !in specialProjects }.map { it.tasks.getByName("downloadOriginalJar") }
     dependsOn(originals)
     from(originals)
     into("$buildDir/originals")
