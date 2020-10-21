@@ -82,25 +82,26 @@ configure(subprojects.filter { it.name !in specialProjects }) {
     // apply shadow plugin for subject sub-projects for easy packaging
     apply(plugin = "com.github.johnrengelman.shadow")
 
-    tasks.withType<ShadowJar> {
-        archiveClassifier.set("subject")
-        archiveVersion.set("")
-        manifest.attributes["Main-Class"] = "saarland.cispa.subjects.Driver"
-        configurations = configurations + listOf(instrumented, subjectTransitives)
-    }
+    tasks {
+        val shadowJar = named<ShadowJar>("shadowJar") {
+            archiveClassifier.set("subject")
+            archiveVersion.set("")
+            manifest.attributes["Main-Class"] = "saarland.cispa.subjects.Driver"
+            configurations = configurations + listOf(instrumented, subjectTransitives)
+        }
 
-    tasks.getByName("build").dependsOn("shadowJar")
+        getByName("build").dependsOn(shadowJar)
 
-    tasks.withType<Jar> {
-        if (this !is ShadowJar) {
+        named<Jar>("jar") {
             enabled = false
         }
-    }
 
-    // a task for downloading all un-instrumented subjects for analysis with jacoco
-    tasks.register<Copy>("downloadOriginalJar") {
-        from(subject)
-        into("$buildDir/original")
+        // a task for downloading an un-instrumented subject version for analysis with jacoco
+        register<ShadowJar>("downloadOriginalJar") {
+            archiveClassifier.set("original")
+            archiveVersion.set("")
+            configurations = listOf(project.configurations["subject"])
+        }
     }
 }
 
