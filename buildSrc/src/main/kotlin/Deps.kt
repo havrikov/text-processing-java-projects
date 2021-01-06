@@ -14,14 +14,14 @@ object Deps {
     // because it is needed in both utils and buildSrc
 
     // Subjects
-    const val argoVersion = "5.13"
-    const val fastjsonVersion = "1.2.73"
+    const val argoVersion = "5.16"
+    const val fastjsonVersion = "1.2.75"
     const val gensonVersion = "1.6"
     const val gsonVersion = "2.8.6"
-    const val jacksonDatabindVersion = "2.11.3"
+    const val jacksonDatabindVersion = "2.12.0"
     const val json2flatVersion = "1.0.3"
-    const val jsonFlattenerVersion = "0.9.0"
-    const val jsonJavaVersion = "20200518"
+    const val jsonFlattenerVersion = "0.12.0"
+    const val jsonJavaVersion = "20201115"
     const val jsonSimpleVersion = "1.1.1"
     const val jsonSimpleCliftonlabsVersion = "3.1.1"
     const val minimalJsonVersion = "0.9.5"
@@ -33,7 +33,7 @@ object Deps {
     const val jurlVersion = "v0.4.2"
     const val urlDetectorVersion = "0.1.17"
 
-    const val commonmarkVersion = "0.15.2"
+    const val commonmarkVersion = "0.16.1"
     const val flexmarkVersion = "0.34.48"
     const val markdown4jVersion = "2.2-cj-1.1"
     const val markdownjVersion = "0.4"
@@ -47,7 +47,7 @@ object Deps {
     const val simpleCSVVersion = "2.1"
     const val superCSVVersion = "2.4.0"
 
-    const val closureVersion = "v20200927"
+    const val closureVersion = "v20201207"
     const val nashornSandboxVersion = "0.1.28"
     const val rhinoSandboxVersion = "0.0.11"
     const val rhinoVersion = "1.7.13"

@@ -39,13 +39,13 @@ These are the projects, which are currently supported:
 #### JSON
 Project | Version | Instrumented Package
 ---     | --- | ---
-[argo](http://argo.sourceforge.net/) | `5.13` | `argo`
-[fastjson](https://github.com/alibaba/fastjson) | `1.2.73` | `com.alibaba.fastjson`
+[argo](http://argo.sourceforge.net/) | `5.16` | `argo`
+[fastjson](https://github.com/alibaba/fastjson) | `1.2.75` | `com.alibaba.fastjson`
 [genson](https://owlike.github.io/genson/) | `1.6` | `com.owlike.genson`
 [gson](https://github.com/google/gson) | `2.8.6` | `com.google.gson`
-[jackson-databind](https://github.com/FasterXML/jackson-databind) | `2.11.3` | `com.fasterxml.jackson`
-[json-flattener](https://github.com/wnameless/json-flattener) | `0.9.0` | `com.github.wnameless.json`
-[json-java](https://github.com/stleary/JSON-java/) | `20200518` | `org.json`
+[jackson-databind](https://github.com/FasterXML/jackson-databind) | `2.12.0` | `com.fasterxml.jackson`
+[json-flattener](https://github.com/wnameless/json-flattener) | `0.12.0` | `com.github.wnameless.json`
+[json-java](https://github.com/stleary/JSON-java/) | `20201115` | `org.json`
 [json-simple-cliftonlabs](https://github.com/cliftonlabs/json-simple) | `3.1.1` | `com.github.cliftonlabs.json_simple`
 [json-simple](https://github.com/fangyidong/json-simple) | `1.1.1` | `org.json.simple`
 [json2flat](https://github.com/opendevl/Json2Flat) | `1.0.3` | `com.github.opendevl`
@@ -64,7 +64,7 @@ Project | Version | Instrumented Package
 #### Markdown
 Project | Version | Instrumented Package
 ---     | --- | ---
-[commonmark](https://github.com/atlassian/commonmark-java) | `0.15.2` | `org.commonmark`
+[commonmark](https://github.com/atlassian/commonmark-java) | `0.16.1` | `org.commonmark`
 [flexmark](https://github.com/vsch/flexmark-java) | `0.34.48` | `com.vladsch.flexmark`
 [markdown-papers](http://github.com/lruiz/MarkdownPapers) | `1.4.4` | `org.tautua.markdownpapers`
 [markdown4j](https://github.com/jdcasey/markdown4j) | `2.2-cj-1.1` | `org.markdown4j`
@@ -84,7 +84,7 @@ Project | Version | Instrumented Package
 #### JavaScript
 Project | Version | Instrumented Package | Notes
 ---     | --- | --- | ---
-[closure](https://github.com/google/closure-compiler) | `v20200927` | `com.google.javascript.jscomp`
+[closure](https://github.com/google/closure-compiler) | `v20201207` | `com.google.javascript.jscomp`
 [nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox/) | `0.1.28` | `delight.nashornsandbox` | Delegates to Nashorn (Rhino's precursor)
 [rhino-sandbox](https://github.com/javadelight/delight-rhino-sandbox/) | `0.0.11` | `delight.rhinosandox` | Not a typo. Delegates to Rhino.
 [rhino](https://github.com/mozilla/rhino/) | `1.7.13` | `org.mozilla.javascript`
