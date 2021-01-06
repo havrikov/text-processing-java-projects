@@ -1,15 +1,15 @@
 object Deps {
     // This Project
-    const val kotlinVersion = "1.4.10"
+    const val kotlinVersion = "1.4.21"
     const val shadowVersion = "6.1.0"
 
     // Utils Project
-    const val cliktVersion = "3.0.1"
-    const val kotlinLoggingVersion = "2.0.3"
+    const val cliktVersion = "3.1.0"
+    const val kotlinLoggingVersion = "2.0.4"
     const val logbackVersion = "1.2.3"
-    const val openCsvVersion = "5.2"
+    const val openCsvVersion = "5.3"
     const val javaxJsonVersion = "1.1.4"
-    const val logstashVersion = "6.4"
+    const val logstashVersion = "6.5"
     // jacocoVersion is taken from versions.gradle.kts
     // because it is needed in both utils and buildSrc
 
