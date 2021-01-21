@@ -1,6 +1,7 @@
 package saarland.cispa.subjects
 
 import com.eclipsesource.json.Json
+import com.eclipsesource.json.WriterConfig
 import java.io.File
 
 object Driver : SubjectExecutor() {
@@ -10,21 +11,23 @@ object Driver : SubjectExecutor() {
     fun main(args: Array<String>) = processArgs(args)
 
     override fun processFile(file: File) {
-        file.reader().use {
-            val jsonValue = Json.parse(it)
-            with(jsonValue) {
-                toString()
-                when {
-                    isArray -> asArray()
-                    isBoolean -> asBoolean()
-                    isFalse -> asBoolean()
-                    isNull -> null
-                    isNumber -> asFloat()
-                    isObject -> asObject()
-                    isString -> asString()
-                    isTrue -> asBoolean()
-                    else -> Unit
-                }
+        val jsonValue = file.reader().use {
+            Json.parse(it)
+        }
+        jsonValue.writeTo(NopWriter, WriterConfig.MINIMAL)
+        jsonValue.writeTo(NopWriter, WriterConfig.PRETTY_PRINT)
+
+        jsonValue.run {
+            when {
+                isArray -> asArray()
+                isBoolean -> asBoolean()
+                isFalse -> asBoolean()
+                isNull -> Unit
+                isNumber -> asFloat()
+                isObject -> asObject()
+                isString -> asString()
+                isTrue -> asBoolean()
+                else -> Unit
             }
         }
     }
