@@ -13,8 +13,11 @@ object Driver : SubjectExecutor() {
         Jsoner.prettyPrint(text)
 
         val deserialized = Jsoner.deserialize(text)
-        when (deserialized) {
-            is Jsonable -> deserialized.toJson(NopWriter)
-        }
+
+        Jsoner.serialize(deserialized, NopWriter)
+        Jsoner.serializeCarelessly(deserialized, NopWriter)
+        Jsoner.serializeStrictly(deserialized, NopWriter)
+
+        if (deserialized is Jsonable) deserialized.toJson(NopWriter)
     }
 }
