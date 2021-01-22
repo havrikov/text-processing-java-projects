@@ -26,9 +26,7 @@ object Driver : SubjectExecutor() {
         })
 
         val parsed = JSONParser().parse(file.bufferedReader())
-        when (parsed) {
-            is JSONAware -> parsed.toJSONString()
-            is JSONStreamAware -> parsed.writeJSONString(NopWriter)
-        }
+        if (parsed is JSONAware) parsed.toJSONString()
+        if (parsed is JSONStreamAware) parsed.writeJSONString(NopWriter)
     }
 }
