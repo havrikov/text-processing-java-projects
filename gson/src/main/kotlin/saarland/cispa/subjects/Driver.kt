@@ -1,6 +1,6 @@
 package saarland.cispa.subjects
 
-import com.google.gson.Gson
+import com.google.gson.GsonBuilder
 import com.google.gson.JsonArray
 import com.google.gson.JsonElement
 import com.google.gson.JsonNull
@@ -15,7 +15,14 @@ import java.io.StringReader
 object Driver : SubjectExecutor() {
     override val packagePrefix = "com.google.gson"
 
-    private val gson = Gson()
+    private val gson = GsonBuilder()
+        .setLenient()
+        .enableComplexMapKeySerialization()
+        .generateNonExecutableJson()
+        .serializeNulls()
+        .serializeSpecialFloatingPointValues()
+        .setPrettyPrinting()
+        .create()
 
     @JvmStatic
     fun main(args: Array<String>) = processArgs(args)
