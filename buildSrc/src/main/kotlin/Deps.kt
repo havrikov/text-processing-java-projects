@@ -1,6 +1,6 @@
 object Deps {
     // This Project
-    const val kotlinVersion = "1.4.21"
+    const val kotlinVersion = "1.4.30"
     const val shadowVersion = "6.1.0"
 
     // Utils Project
