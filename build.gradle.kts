@@ -8,8 +8,8 @@ plugins {
 }
 
 allprojects {
-    group = "saarland.cispa.se"
-    version = "0.1"
+    group = "de.cispa.se.subjects"
+    version = "1.0.0"
 }
 
 // apply kotlin to all sub-projects
@@ -62,7 +62,7 @@ configure(subprojects.filter { it.name !in specialProjects }) {
     }
 
     dependencies {
-        val needsInstrumentation: String = (project.findProperty("saarland.cispa.se.instrument") ?: "false") as String
+        val needsInstrumentation: String = (project.findProperty("de.cispa.se.subjects.instrument") ?: "false") as String
         if (needsInstrumentation.toBoolean()) {
             attributesSchema {
                 attribute(jacocoInstrumented)
@@ -86,7 +86,7 @@ configure(subprojects.filter { it.name !in specialProjects }) {
         val shadowJar = named<ShadowJar>("shadowJar") {
             archiveClassifier.set("subject")
             archiveVersion.set("")
-            manifest.attributes["Main-Class"] = "saarland.cispa.subjects.Driver"
+            manifest.attributes["Main-Class"] = "de.cispa.se.subjects.Driver"
             configurations = configurations + listOf(instrumented, subjectTransitives)
         }
 

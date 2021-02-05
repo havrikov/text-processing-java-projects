@@ -43,7 +43,7 @@ java -jar build/libs/argo-subject.jar \
 This will execute the parser on all inputs in `~/tmp/json` and log all exceptions into `argo.exceptions.json` and produce a coverage report in `argo.coverage.csv`.
 
 ### Turning off the Instrumentation
-You can set the `saarland.cispa.se.instrument` property to `false` to build the subjects without instrumenting them with jacoco.
+You can set the `de.cispa.se.subjects.instrument` property to `false` to build the subjects without instrumenting them with jacoco.
 They will still be runnable, but the reported coverage will be zero.
 
 ## Repository Structure
