@@ -12,6 +12,12 @@ import org.jacoco.core.runtime.OfflineInstrumentationAccessGenerator
 
 
 abstract class JacocoJarInstrumenter : TransformAction<TransformParameters.None> {
+    companion object {
+        init {
+            println("Using JaCoCo version ${JaCoCo.VERSION}")
+        }
+    }
+
     @get:InputArtifact
     @get:PathSensitive(PathSensitivity.NAME_ONLY)
     abstract val inputArtifact: Provider<FileSystemLocation>
@@ -21,7 +27,7 @@ abstract class JacocoJarInstrumenter : TransformAction<TransformParameters.None>
     override fun transform(outputs: TransformOutputs) {
         val src = inputArtifact.get().asFile
         val dest = outputs.file("${src.nameWithoutExtension}-instrumented.jar")
-        println("Instrumenting ${src.name} with JaCoCo version ${JaCoCo.VERSION}")
+        println("Instrumenting ${src.name}")
         src.inputStream().use { input ->
             dest.outputStream().use { output ->
                 instrumenter.instrumentAll(input, output, src.absolutePath)

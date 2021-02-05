@@ -17,7 +17,8 @@ You require java `1.8` or greater.
 To build all projects simply execute `./gradlew build` (or `.\gradlew.bat build` on Windows) in the project root directory.  
 This will generate instrumented, executable jars in the `build/libs` directory.
 
-Additionally, the build process will download the original, uninstrumented versions of the projects' artifacts into `build/originals`.
+There is also the command `./gradlew downloadOriginalJars`,
+which will download the original, uninstrumented versions of the projects' artifacts into `build/originals`.
 These are required for producing coverage reports.
 
 ## Running the Projects
@@ -41,21 +42,6 @@ java -jar build/libs/argo-subject.jar \
 
 This will execute the parser on all inputs in `~/tmp/json` and log all exceptions into `argo.exceptions.json` and produce a coverage report in `argo.coverage.csv`.
 
-## Repository Structure
-
-This repository is organized as a gradle multi-project where each subdirectory encapsulates a driver for a project, with a few notable exceptions:
-
-```
-.
-├── argo      <-- driver for project argo
-├── autolink  <-- driver for project autolink
-├── ...       <-- more project drivers...
-├── build     <-- the output directory where the built projects end up
-├── buildSrc  <-- single source of truth for dependency and project versions
-├── gradle    <-- gradle wrapper, so you don't have to install a build tool
-└── utils     <-- this contains the entry point, command line processing, and coverage and exception reporting; it is used in all drivers
-```
-
 ## Projects
 These are the projects, which are currently supported:
 
@@ -69,10 +55,30 @@ Project | Version | Instrumented Package
 [jackson-databind](https://github.com/FasterXML/jackson-databind) | `${Deps.jacksonDatabindVersion}` | `com.fasterxml.jackson`
 [json-flattener](https://github.com/wnameless/json-flattener) | `${Deps.jsonFlattenerVersion}` | `com.github.wnameless.json`
 [json-java](https://github.com/stleary/JSON-java/) | `${Deps.jsonJavaVersion}` | `org.json`
-[json-simple](https://github.com/fangyidong/json-simple) | `${Deps.jsonSimpleVersion}` | `org.json.simple`
 [json-simple-cliftonlabs](https://github.com/cliftonlabs/json-simple) | `${Deps.jsonSimpleCliftonlabsVersion}` | `com.github.cliftonlabs.json_simple`
+[json-simple](https://github.com/fangyidong/json-simple) | `${Deps.jsonSimpleVersion}` | `org.json.simple`
+[json2flat](https://github.com/opendevl/Json2Flat) | `${Deps.json2flatVersion}` | `com.github.opendevl`
 [minimal-json](https://github.com/ralfstx/minimal-json) | `${Deps.minimalJsonVersion}` | `com.eclipsesource.json`
 [pojo](https://github.com/joelittlejohn/jsonschema2pojo) | `${Deps.pojoVersion}` | `org.jsonschema2pojo`
+
+#### URL
+Project | Version | Instrumented Package
+---     | --- | ---
+[autolink](https://github.com/robinst/autolink-java) | `${Deps.autolinkVersion}` | `org.nibor.autolink`
+[galimatias-nu](https://github.com/validator/galimatias) | `${Deps.galimatiasNuVersion}` | `io.mola.galimatias`
+[galimatias](https://github.com/smola/galimatias) | `${Deps.galimatiasVersion}` | `io.mola.galimatias`
+[jurl](https://github.com/anthonynsimon/jurl) | `${Deps.jurlVersion}` | `com.anthonynsimon.url`
+[url-detector](https://github.com/linkedin/URL-Detector) | `${Deps.urlDetectorVersion}` | `com.linkedin.urls.detection`
+
+#### Markdown
+Project | Version | Instrumented Package
+---     | --- | ---
+[commonmark](https://github.com/atlassian/commonmark-java) | `${Deps.commonmarkVersion}` | `org.commonmark`
+[flexmark](https://github.com/vsch/flexmark-java) | `${Deps.flexmarkVersion}` | `com.vladsch.flexmark`
+[markdown-papers](http://github.com/lruiz/MarkdownPapers) | `${Deps.markdownPapersVersion}` | `org.tautua.markdownpapers`
+[markdown4j](https://github.com/jdcasey/markdown4j) | `${Deps.markdown4jVersion}` | `org.markdown4j`
+[markdownj](https://github.com/myabc/markdownj) | `${Deps.markdownjVersion}` | `org.markdownj`
+[txtmark](https://github.com/rjeschke/txtmark) | `${Deps.txtmarkVersion}` | `com.github.rjeschke.txtmark`
 
 #### CSV
 Project | Version | Instrumented Package
@@ -84,20 +90,38 @@ Project | Version | Instrumented Package
 [simplecsv](https://github.com/quux00/simplecsv) | `${Deps.simpleCSVVersion}` | `net.quux00.simplecsv`
 [super-csv](https://github.com/super-csv/super-csv) | `${Deps.superCSVVersion}` | `org.supercsv`
 
-#### URL
-Project | Version | Instrumented Package
----     | --- | ---
-[autolink](https://github.com/robinst/autolink-java) | `${Deps.autolinkVersion}` | `org.nibor.autolink`
-[galimatias](https://github.com/smola/galimatias) | `${Deps.galimatiasVersion}` | `io.mola.galimatias`
-[jurl](https://github.com/anthonynsimon/jurl) | `${Deps.jurlVersion}` | `com.anthonynsimon.url`
-[url-detector](https://github.com/linkedin/URL-Detector) | `${Deps.urlDetectorVersion}` | `com.linkedin.urls.detection`
+#### JavaScript
+Project | Version | Instrumented Package | Notes
+---     | --- | --- | ---
+[closure](https://github.com/google/closure-compiler) | `${Deps.closureVersion}` | `com.google.javascript.jscomp`
+[nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox/) | `${Deps.nashornSandboxVersion}` | `delight.nashornsandbox` | Delegates to Nashorn (Rhino's precursor)
+[rhino-sandbox](https://github.com/javadelight/delight-rhino-sandbox/) | `${Deps.rhinoSandboxVersion}` | `delight.rhinosandox` | Not a typo. Delegates to Rhino.
+[rhino](https://github.com/mozilla/rhino/) | `${Deps.rhinoVersion}` | `org.mozilla.javascript`
 
-#### Markdown
+#### CSS
+Project | Version | Instrumented Package | Notes
+---     | --- | --- | ---
+[batik-css](https://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/css/parser/package-summary.html) |  `${Deps.batikCssVersion}` | `org.apache.batik.css`
+[closure-stylesheets](http://code.google.com/p/closure-stylesheets/) |  `${Deps.closureStylesheetsVersion}` | `com.google.closure-stylesheets`
+[css-validator](https://github.com/w3c/css-validator) | `${Deps.cssValidatorVersion}` | `org.w3c.css.css` | :warning: Currently unsupported because of Jacoco Error: "Method too large: org/w3c/css/parser/analyzer/CssParserTokenManager.jjMoveNfa_0 (II)I"
+[cssparser](http://cssparser.sourceforge.net/) |  `${Deps.cssparserVersion}` | `net.sourceforge.cssparser` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/steadystate/css/parser/SACParserCSS21TokenManager.jjMoveNfa_0 (II)I"
+[flute](https://www.w3.org/Style/CSS/SAC/) |  `${Deps.fluteVersion}` | `org.w3c.flute`
+[jstyleparser](https://github.com/radkovo/jStyleParser/) |  `${Deps.jstyleparserVersion}` | `net.sf.cssbox`
+[ph-css](https://github.com/phax/ph-css) | `${Deps.phCssVersion}` |  `com.helger.css`
+
+#### INI
 Project | Version | Instrumented Package
 ---     | --- | ---
-[commonmark](https://github.com/atlassian/commonmark-java) | `${Deps.commonmarkVersion}` | `org.commonmark`
-[markdown4j](https://github.com/jdcasey/markdown4j) | `${Deps.markdown4jVersion}` | `org.markdown4j`
-[txtmark](https://github.com/rjeschke/txtmark) | `${Deps.txtmarkVersion}` | `com.github.rjeschke.txtmark`
+[fastini](https://github.com/onlynight/FastIni) | `${Deps.fastiniVersion}` | `com.github.onlynight.fastini`
+[ini4j](http://ini4j.sourceforge.net/) | `${Deps.ini4jVersion}` | `org.ini4j`
+[java-configparser](https://github.com/ASzc/java-configparser) | `${Deps.javaConfigparserVersion}` | `ca.szc.configparser`
+
+#### Dot
+Project | Version | Instrumented Package
+---     | --- | ---
+[digraph-parser](https://github.com/paypal/digraph-parser/) | `${Deps.digraphParserVersion}` | `com.paypal.digraph.parser`
+[graphstream](http://graphstream-project.org/) | `${Deps.graphstreamVersion}` | `org.graphstream`
+[graphviz-java](https://github.com/nidi3/graphviz-java/) | `${Deps.graphvizJavaVersion}` | `guru.nidi`
 """
         )
     }

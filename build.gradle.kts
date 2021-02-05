@@ -29,7 +29,7 @@ subprojects {
     }
 }
 
-val specialProjects = setOf("utils")
+val specialProjects = setOf("utils", "sac-driver")
 val jacocoInstrumented = Attribute.of("jacoco.instrumented", Boolean::class.javaObjectType)
 configure(subprojects.filter { it.name !in specialProjects }) {
     val subject by configurations.creating {
@@ -55,15 +55,18 @@ configure(subprojects.filter { it.name !in specialProjects }) {
     }
 
     dependencies {
-        attributesSchema {
-            attribute(jacocoInstrumented)
-        }
-        artifactTypes.getByName("jar") {
-            attributes.attribute(jacocoInstrumented, false)
-        }
-        registerTransform(JacocoJarInstrumenter::class) {
-            from.attribute(jacocoInstrumented, false)
-            to.attribute(jacocoInstrumented, true)
+        val needsInstrumentation: String = project.property("saarland.cispa.se.instrument") as String
+        if (needsInstrumentation.toBoolean()) {
+            attributesSchema {
+                attribute(jacocoInstrumented)
+            }
+            artifactTypes.getByName("jar") {
+                attributes.attribute(jacocoInstrumented, false)
+            }
+            registerTransform(JacocoJarInstrumenter::class) {
+                from.attribute(jacocoInstrumented, false)
+                to.attribute(jacocoInstrumented, true)
+            }
         }
         // also add dependency in the utils project
         add("implementation", project(":utils"))
