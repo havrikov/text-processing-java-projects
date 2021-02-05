@@ -42,6 +42,21 @@ java -jar build/libs/argo-subject.jar \
 
 This will execute the parser on all inputs in `~/tmp/json` and log all exceptions into `argo.exceptions.json` and produce a coverage report in `argo.coverage.csv`.
 
+## Repository Structure
+
+This repository is organized as a gradle multi-project where each subdirectory encapsulates a driver for a project, with a few notable exceptions:
+
+```
+.
+├── argo      <-- driver for project argo
+├── autolink  <-- driver for project autolink
+├── ...       <-- more project drivers...
+├── build     <-- the output directory where the built projects end up
+├── buildSrc  <-- single source of truth for dependency and project versions
+├── gradle    <-- gradle wrapper, so you don't have to install a build tool
+└── utils     <-- this contains the entry point, command line processing, and coverage and exception reporting; it is used in all drivers
+```
+
 ## Projects
 These are the projects, which are currently supported:
 
