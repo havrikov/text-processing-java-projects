@@ -1,6 +1,5 @@
 package saarland.cispa.subjects
 
-import org.nibor.autolink.Autolink
 import org.nibor.autolink.LinkExtractor
 import org.nibor.autolink.LinkSpan
 import org.nibor.autolink.LinkType
@@ -23,8 +22,6 @@ object Driver : SubjectExecutor() {
             it.beginIndex
             it.endIndex
         }
-
-        Autolink.renderLinks(text, links) { _, _, _ -> }
 
         val spans = linkExtractor.extractSpans(text)
 
