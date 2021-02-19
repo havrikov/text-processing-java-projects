@@ -15,7 +15,7 @@ allprojects {
 // apply kotlin to all sub-projects
 subprojects {
     repositories {
-        jcenter()
+        mavenCentral()
     }
 
     apply(plugin = "org.jetbrains.kotlin.jvm")
