@@ -59,17 +59,17 @@ These are the projects, which are currently supported:
 Project | Version | Instrumented Package
 ---     | --- | ---
 [argo](http://argo.sourceforge.net/) | `5.16` | `argo`
-[fastjson](https://github.com/alibaba/fastjson) | `1.2.75` | `com.alibaba.fastjson`
+[fastjson](https://github.com/alibaba/fastjson) | `1.2.76` | `com.alibaba.fastjson`
 [genson](https://owlike.github.io/genson/) | `1.6` | `com.owlike.genson`
 [gson](https://github.com/google/gson) | `2.8.6` | `com.google.gson`
-[jackson-databind](https://github.com/FasterXML/jackson-databind) | `2.12.0` | `com.fasterxml.jackson`
+[jackson-databind](https://github.com/FasterXML/jackson-databind) | `2.12.2` | `com.fasterxml.jackson`
 [json-flattener](https://github.com/wnameless/json-flattener) | `0.12.0` | `com.github.wnameless.json`
-[json-java](https://github.com/stleary/JSON-java/) | `20201115` | `org.json`
+[json-java](https://github.com/stleary/JSON-java/) | `20210307` | `org.json`
 [json-simple-cliftonlabs](https://github.com/cliftonlabs/json-simple) | `3.1.1` | `com.github.cliftonlabs.json_simple`
 [json-simple](https://github.com/fangyidong/json-simple) | `1.1.1` | `org.json.simple`
 [json2flat](https://github.com/opendevl/Json2Flat) | `1.0.3` | `com.github.opendevl`
 [minimal-json](https://github.com/ralfstx/minimal-json) | `0.9.5` | `com.eclipsesource.json`
-[pojo](https://github.com/joelittlejohn/jsonschema2pojo) | `1.0.2` | `org.jsonschema2pojo`
+[pojo](https://github.com/joelittlejohn/jsonschema2pojo) | `1.1.0` | `org.jsonschema2pojo`
 
 #### URL
 Project | Version | Instrumented Package
@@ -83,7 +83,7 @@ Project | Version | Instrumented Package
 #### Markdown
 Project | Version | Instrumented Package
 ---     | --- | ---
-[commonmark](https://github.com/atlassian/commonmark-java) | `0.16.1` | `org.commonmark`
+[commonmark](https://github.com/atlassian/commonmark-java) | `0.17.0` | `org.commonmark`
 [flexmark](https://github.com/vsch/flexmark-java) | `0.34.48` | `com.vladsch.flexmark`
 [markdown-papers](http://github.com/lruiz/MarkdownPapers) | `1.4.4` | `org.tautua.markdownpapers`
 [markdown4j](https://github.com/jdcasey/markdown4j) | `2.2-cj-1.1` | `org.markdown4j`
@@ -94,7 +94,7 @@ Project | Version | Instrumented Package
 Project | Version | Instrumented Package
 ---     | --- | ---
 [commons-csv](https://commons.apache.org/proper/commons-csv/) | `1.8` | `org.apache.commons.csv`
-[jackson-dataformat-csv](https://github.com/FasterXML/jackson-dataformats-text/tree/master/csv) | `2.11.3` | `com.fasterxml.jackson.dataformat`
+[jackson-dataformat-csv](https://github.com/FasterXML/jackson-dataformats-text/tree/master/csv) | `2.12.2` | `com.fasterxml.jackson.dataformat`
 [jcsv](https://code.google.com/archive/p/jcsv/) | `1.4.0` | `com.googlecode.jcsv`
 [sfm-csv](https://github.com/arnaudroger/SimpleFlatMapper) | `8.2.3` | `org.simpleflatmapper.csv`
 [simplecsv](https://github.com/quux00/simplecsv) | `2.1` | `net.quux00.simplecsv`
@@ -103,20 +103,20 @@ Project | Version | Instrumented Package
 #### JavaScript
 Project | Version | Instrumented Package | Notes
 ---     | --- | --- | ---
-[closure](https://github.com/google/closure-compiler) | `v20201207` | `com.google.javascript.jscomp`
-[nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox/) | `0.1.28` | `delight.nashornsandbox` | Delegates to Nashorn (Rhino's precursor)
-[rhino-sandbox](https://github.com/javadelight/delight-rhino-sandbox/) | `0.0.11` | `delight.rhinosandox` | Not a typo. Delegates to Rhino.
+[closure](https://github.com/google/closure-compiler) | `v20210302` | `com.google.javascript.jscomp`
+[nashorn-sandbox](https://github.com/javadelight/delight-nashorn-sandbox/) | `0.2.0` | `delight.nashornsandbox` | Delegates to Nashorn (Rhino's precursor)
+[rhino-sandbox](https://github.com/javadelight/delight-rhino-sandbox/) | `0.0.15` | `delight.rhinosandox` | Not a typo. Delegates to Rhino.
 [rhino](https://github.com/mozilla/rhino/) | `1.7.13` | `org.mozilla.javascript`
 
 #### CSS
 Project | Version | Instrumented Package | Notes
 ---     | --- | --- | ---
-[batik-css](https://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/css/parser/package-summary.html) |  `1.13` | `org.apache.batik.css`
+[batik-css](https://xmlgraphics.apache.org/batik/javadoc/org/apache/batik/css/parser/package-summary.html) |  `1.14` | `org.apache.batik.css`
 [css-validator](https://github.com/w3c/css-validator) | `1.0.8` | `org.w3c.css.css` | :warning: Currently unsupported because of Jacoco Error: "Method too large: org/w3c/css/parser/analyzer/CssParserTokenManager.jjMoveNfa_0 (II)I"
-[cssparser](http://cssparser.sourceforge.net/) |  `0.9.27` | `net.sourceforge.cssparser` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/steadystate/css/parser/SACParserCSS21TokenManager.jjMoveNfa_0 (II)I"
+[cssparser](http://cssparser.sourceforge.net/) |  `0.9.29` | `net.sourceforge.cssparser` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/steadystate/css/parser/SACParserCSS21TokenManager.jjMoveNfa_0 (II)I"
 [flute](https://www.w3.org/Style/CSS/SAC/) |  `1.3` | `org.w3c.flute`
-[jstyleparser](https://github.com/radkovo/jStyleParser/) |  `3.5` | `net.sf.cssbox`
-[ph-css](https://github.com/phax/ph-css) | `6.2.3` |  `com.helger.css` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/helger/css/parser/ParserCSS30TokenManager.jjMoveNfa_0 (II)I"
+[jstyleparser](https://github.com/radkovo/jStyleParser/) |  `4.0.0` | `net.sf.cssbox`
+[ph-css](https://github.com/phax/ph-css) | `6.3.0` |  `com.helger.css` | :warning: Currently unsupported because of Jacoco Error: "Method too large: com/helger/css/parser/ParserCSS30TokenManager.jjMoveNfa_0 (II)I"
 
 #### INI
 Project | Version | Instrumented Package
@@ -130,4 +130,4 @@ Project | Version | Instrumented Package
 ---     | --- | ---
 [digraph-parser](https://github.com/paypal/digraph-parser/) | `1.0` | `com.paypal.digraph.parser`
 [graphstream](http://graphstream-project.org/) | `2.0` | `org.graphstream`
-[graphviz-java](https://github.com/nidi3/graphviz-java/) | `0.17.0` | `guru.nidi`
+[graphviz-java](https://github.com/nidi3/graphviz-java/) | `0.18.1` | `guru.nidi`
